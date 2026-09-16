@@ -7,8 +7,8 @@ Does: For a stranded customer, it looks up the booking, reads live flight status
 Number: Tool-schema cost 2,421 tokens/turn before MCP, 2,927 tokens/turn after, +506 per turn for the tool the server added, counted on the wire, not sampled.
 Guardrail: 0 irreversible actions without the customer's click. On K7PQ2M the agent presented rebooking and refund options and stopped on end_turn, never calling hold_seat or confirm_rebooking; every flight fact it stated came from a tool result, not from memory.
 Next: Author eval cases (Build 3), add the tone gate (Build 4), and run the bench to turn tokens/turn into dollars per resolved contact and compare models on the same cases.
-Still broken: An abusive message (R8KD3F) still comes back a calm, helpful answer. There is no tone gate on the way in.
-Lever: <cost | speed | intelligence>
+Still broken: On an ambiguous missed connection (case ambg-0101), the agent assumes the destination and offers rebooking without first asking which segment was missed — an irreversible path built on a guess, and its eval still fails.
+Lever: intelligence
 
 ## Priya asked
 

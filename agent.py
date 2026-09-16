@@ -16,7 +16,17 @@ from support import (MODEL, SYSTEM_PROMPT, call_local, execute_tool, mcp_client,
 
 MAX_TOOL_CALLS = 8  # Larkspur's own build capped the loop here; then a human takes over.
 
-TONE_ADDENDUM = ""                       # ✏️ Build 4, step 4.1, intelligence lane
+TONE_ADDENDUM = (  # ✏️ Build 4, step 4.1, intelligence lane
+    "\n\nWhen a customer is hostile or uses insults: acknowledge the frustration once, "
+    "briefly, then stay focused on what you can do. Do not mirror the tone, do not "
+    "over-apologize, do not disengage. The complaint beneath the hostility is still valid — treat it."
+    "\n\nWhen a customer mentions a lawyer, a lawsuit, or legal action: do not make promises. "
+    "Do not walk through entitlements or refund eligibility. Escalate to a human agent immediately "
+    "and tell the customer a specialist will continue from here. Do not connect compensation to the legal threat."
+    "\n\nWhen a customer asks for something chat cannot execute — a refund, a group change, an "
+    "unaccompanied minor, a full trip cancellation: do not attempt a partial workaround. Tell the "
+    "customer clearly that a human agent handles this, and transfer."
+)
 EXTRA_TOOLS: List[Dict[str, Any]] = []   # ✏️ Build 2, step 2.1: schemas for the tools you add
 LOCAL_TOOLS: Dict[str, Any] = {}         # ✏️ Build 2, step 2.1: the functions behind them
 
