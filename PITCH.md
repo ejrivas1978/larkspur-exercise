@@ -12,7 +12,7 @@ Lever: intelligence
 
 ## Priya asked
 
-Costs:
-Wrong:
-Runs it:
-Left out:
+Costs: ~$0.059 model cost per resolved contact (bench, stage 1, 3 runs/shape) against $6.90 for a human chat. This is model cost, not loaded — infrastructure and evals add roughly 40% (Larkspur's loaded number was ~$0.14). Priced 2026-09-16.
+Wrong: The first failure is ambiguity, not invention. On an ambiguous missed connection (case ambg-0101) it assumes the destination and offers rebooking without asking which segment was missed — an irreversible path on a guess. It does not fabricate flight facts (grnd-0101 passes): every flight statement comes from a tool result.
+Runs it: The client's platform/ops team. The MCP-served tools (next_available_day, fare_rules) are owned and versioned by them, the eval suite (evals/cases.json) runs as the regression guard, and human escalation keeps a person on out-of-scope, refunds, and legal-threat cases.
+Left out: Voice and everything non-chat (59% of contacts), plus refunds, group changes, and unaccompanied minors — all escalated to a human by design. Humans still take ~42% of in-scope chats. Not proven yet: accuracy at volume, storm-day concurrency, and the loaded cost.
